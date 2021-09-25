@@ -1,0 +1,22 @@
+<div
+  class="frame"
+  [style.width.px]="frame.width"
+  [style.height.px]="frame.height"
+  [style.border-width.px]="frame.borderWidth"
+>
+  <!-- Beam -->
+  <app-beam [beam]="beam"></app-beam>
+
+  <!-- Rods -->
+  <ng-container *ngIf="frame.beam">
+    <app-rod
+      (newValue)="updateTotalValue($event)"
+      *ngFor="let rod of frame.rods"
+      [rod]="rod"
+    ></app-rod>
+  </ng-container>
+</div>
+
+<div class="value">
+  {{ totalValue | number }}
+</div>

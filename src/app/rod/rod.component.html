@@ -1,0 +1,17 @@
+<div
+  class="rod"
+  [style.width.px]="rod?.width"
+  [style.height.px]="rod?.height"
+  [style.right.px]="rod?.right"
+  [style.top.px]="rod?.top"
+>
+  <app-bead
+    (newValue)="updateRodTotalValue($event)"
+    *ngFor="let bead of rod?.beads"
+    [bead]="bead"
+  ></app-bead>
+
+  <div class="value" [style.bottom.px]="valueBottom">
+    {{ rodTotalValue | number }}
+  </div>
+</div>
